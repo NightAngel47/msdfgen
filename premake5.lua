@@ -2,7 +2,7 @@ project "freetype"
 	location "freetype"
 	kind "StaticLib"
 	language "C"
-    staticruntime "off"
+    staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -76,21 +76,23 @@ project "freetype"
 	filter "configurations:Debug"
 		runtime "Debug"
 		symbols "on"
+		optimize "off"
 
 	filter "configurations:Release"
 		runtime "Release"
+		symbols "off"
 		optimize "on"
 
 	filter "configurations:Dist"
 		runtime "Release"
+		symbols "off"
 		optimize "on"
-        symbols "off"
 
 project "msdfgen"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-    staticruntime "off"
+    staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -129,12 +131,14 @@ project "msdfgen"
 	filter "configurations:Debug"
 		runtime "Debug"
 		symbols "on"
+		optimize "off"
 
 	filter "configurations:Release"
 		runtime "Release"
+		symbols "off"
 		optimize "on"
 
 	filter "configurations:Dist"
 		runtime "Release"
+		symbols "off"
 		optimize "on"
-        symbols "off"
